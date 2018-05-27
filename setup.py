@@ -11,11 +11,10 @@ setuptools.setup(
     description="Makes Kivy windows stay on top.",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/pypa/example-project",
+    url="https://github.com/JakubBlaha/KivyOnTop",
     packages=setuptools.find_packages(),
     classifiers=(
         "Programming Language :: Python :: 3",
-        "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ),
 )
