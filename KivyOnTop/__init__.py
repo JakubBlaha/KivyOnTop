@@ -66,4 +66,4 @@ def unregister_topmost(Window, title: str):
     '''
 
     Window.unbind(on_draw=set_always_on_top)
-    set_not_always_on_top()
+    set_not_always_on_top(title)

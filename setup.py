@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="KivyOnTop",
-    version="1.2",
+    version="1.3",
     author="Jakub Bláha",
     author_email="jakub.blaha@example.com",
     description="Makes Kivy windows stay on top.",
