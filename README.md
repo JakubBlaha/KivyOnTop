@@ -8,7 +8,7 @@ Makes Kivy windows stay on top of others. Works by manipulating window tags via 
  - Bind window drawing to setting AOT flag for case the window is moved or resized by the app
  - Unbind window drawing
 
-##Usage
+## Usage
 ```
 from kivy.App import App
 from kivy.core.window import Window
