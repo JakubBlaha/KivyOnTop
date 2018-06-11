@@ -1,6 +1,6 @@
 # KivyOnTop
 
-Makes Kivy windows stay on top of others. Works by manipulating window tags via win32gui library.
+Makes Kivy windows stay on top of others. Works by manipulating window tags via `win32gui` library. Install with `python -m pip install KivyOnTop`.
 
 ## Features
  - Set AOT flag for Kivy window
