@@ -12,7 +12,7 @@ Makes Kivy windows stay on top of others. Works by manipulating window tags via 
 ```
 from kivy.App import App
 from kivy.core.window import Window
-from KivyOnTop import register_topmost, undregister_topmost
+from KivyOnTop import register_topmost, unregister_topmost
 
 class KivyontopApp(App):
     def on_start(self, *args):
@@ -24,6 +24,5 @@ class KivyontopApp(App):
      self.bind(on_stop=lambda *args, w=Window, t=TITLE: unregister_topmost(w, t))
  
 if __name__ == '__main__':
-    app = KivyontopApp()
-    app.run()
+    KivyontopApp().run()
 ```
