@@ -2,27 +2,32 @@
 
 Makes Kivy windows stay on top of others. Works by manipulating window tags via `win32gui` library. Install with `python -m pip install KivyOnTop`.
 
-## Features
- - Set AOT flag for Kivy window
- - Unset AOT flag for Kivy window
- - Bind window drawing to setting AOT flag for case the window is moved or resized by the app
- - Unbind window drawing
+**Note: This wrapper only supports the Windows platform at the moment.**
 
-## Usage
-```
+## Features
+ - set and reset the always on top flag for a Kivy window
+
+## Usage example
+```python
 from kivy.App import App
 from kivy.core.window import Window
-from KivyOnTop import register_topmost, undregister_topmost
+from KivyOnTop import register_topmost, unregister_topmost
+
+
+TITLE = 'KivyOnTop'
+
 
 class KivyontopApp(App):
     def on_start(self, *args):
-     TITLE = 'KivyOnTop'
-     Window.set_title(TITLE)
-     register_topmost(Window, TITLE)
+        Window.set_title(TITLE)
 
-     # Not necessary
-     self.bind(on_stop=lambda *args, w=Window, t=TITLE: unregister_topmost(w, t))
+        # Register top-most
+        register_topmost(Window, TITLE)
+
+        # Unregister top-most (not necessary, only an example)
+        self.bind(on_stop=lambda *args, w=Window, t=TITLE: unregister_topmost(w, t))
  
+
 if __name__ == '__main__':
     app = KivyontopApp()
     app.run()
