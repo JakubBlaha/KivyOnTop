@@ -3,6 +3,7 @@ name = "KivyOnTop"
 import win32gui
 import win32con
 
+set_always_on_top_function = None
 
 def find_hwnd(title: str):
     global hwnd
@@ -57,7 +58,9 @@ def register_topmost(Window, title: str):
     Makes the current Kivy Window stay always on top.
     '''
 
-    Window.bind(on_draw=lambda *args: set_always_on_top(title))
+    global set_always_on_top_function
+    set_always_on_top_function = lambda *args: set_always_on_top(title)
+    Window.bind(on_draw=set_always_on_top_function)
 
 
 def unregister_topmost(Window, title: str):
@@ -65,5 +68,6 @@ def unregister_topmost(Window, title: str):
     Disabled the HWND_TOPMOST flag for the current Kivy Window.
     '''
 
-    Window.unbind(on_draw=set_always_on_top)
+    if set_always_on_top_function is not None:
+        Window.unbind(on_draw=set_always_on_top_function)
     set_not_always_on_top(title)
